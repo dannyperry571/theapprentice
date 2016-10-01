@@ -27,7 +27,7 @@ Dialog = xbmcgui.Dialog()
 Decode = base64.decodestring
 CAT=Decode('LnBocA==')
 BASE = 'http://www.couchtripper.com/forum2/page.php?page=3'
-addon_id='plugin.video.bricom_central'
+addon_id='plugin.video.britcom_central'
 base_url = sys.argv[0]
 addon_handle = int(sys.argv[1])
 args = urlparse.parse_qs(sys.argv[2][1:])

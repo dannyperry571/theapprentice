@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.bricom_central" name="Bricom Central" version="1.0.0" provider-name="The Apprentice">
+<addon id="plugin.video.britcom_central" name="Britcom Central" version="1.0.1" provider-name="The Apprentice">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
 	<import addon="script.module.urlresolver"  version="3.0.0"/>
@@ -10,7 +10,7 @@
 		<provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-	<summary lang="en">Bricom Central</summary>
+	<summary lang="en">Britcom Central</summary>
 	<description lang="en">please on use official source that can be found at http://kodification.co.uk Massive credit to origin for helping me with this addon</description>
 	<disclaimer lang="en">The author neither hosts or stores any content, the author has no affiliation with content hosts</disclaimer>
 	<platform>all</platform>
