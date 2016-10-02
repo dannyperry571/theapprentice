@@ -56,11 +56,13 @@ Main 		= 'http://www.watchseries.ac'
 
 def Main_Menu():
 
-    Menu('Tv Shows','http://herovision.x10host.com/britcom/TV_Shows.php',4,IMAGES,FANART,'','')
-    Menu('Favourites','',103,IMAGES,FANART,'','')
-	
+    Menu('[COLORred]****************[/COLOR][COLORyellow] Thanks For Choosing Apperentice Streams[/COLOR] [COLORred]****************[/COLOR]','',8,IMAGES,FANART,'','')
+    Menu('[COLORskyblue]Sitcoms[/COLOR]','http://herovision.x10host.com/britcom/TV_Shows.php',4,IMAGES,FANART,'','')
+    Menu('[COLORorange]Favourites[/COLOR]','',103,IMAGES,FANART,'','')
+    Menu('[COLORred]Search[/COLOR]','',8,IMAGES,FANART,'','')
+    Menu('[COLORred]****************[/COLOR][COLORyellow] Follow Me On Twitter @Apprentice_007 For Updates And Feedback[/COLOR] [COLORred]****************[/COLOR]','',8,IMAGES,FANART,'','')
 
-	
+#[COLOR][/COLOR]
 def Regex(url):
     HTML = OPEN_URL(url)
     match = re.compile('<NAME="(.+?)"<URL="(.+?)"<MODE="(.+?)"<IMAGE="(.+?)"<FANART="(.+?)"<DESC="(.+?)"').findall(HTML)
@@ -262,7 +264,38 @@ def Printer(Link,season_name):
     if 'http:/' in Link:
         Resolve(Link)
 ###########################################Watch series end###########################################			
-	
+	#############################search#################################################
+def Search():
+    filename = ['TV_Shows']
+    Search_Name = Dialog.input('[COLORred]Britcom Search[/COLOR]', type=xbmcgui.INPUT_ALPHANUM) 
+    Search_Title = Search_Name.lower()
+    for file_name in filename:
+        Search_Url = 'http://herovision.x10host.com/britcom/'+file_name+'.php'
+        HTML = OPEN_URL(Search_Url)
+        match = re.compile('<NAME="(.+?)"<URL="(.+?)"<MODE="(.+?)"<IMAGE="(.+?)"<FANART="(.+?)"<DESC="(.+?)"').findall(HTML)
+        for name,url,mode,image,fanart,desc in match:
+            if Search_Title in name.lower():
+                if image == 'IMAGES':
+                    image = IMAGES
+                if fanart == 'FANART':
+                    fanart = FANART
+                if '.php' in url:
+                    Menu(name,url,4,image,fanart,desc,'')
+                if mode == 'single':
+                    Play(name,url,9,image,fanart,desc,'')
+                elif mode == 'playlist':
+                    Menu(name,url,7,image,fanart,desc,'')
+                elif mode == 'watchseries':
+                    Menu(name,url,100,image,fanart,desc,name)
+                elif mode == 'normal':
+                    Play(name,url,5,image,fanart,desc,'')
+            
+    	xbmcplugin.addSortMethod(addon_handle, xbmcplugin.SORT_METHOD_TITLE);
+		
+		
+		
+#################################search end##################################################
+		
 def Play_Stage(url):
     HTML = OPEN_URL(url)
     playlink = re.compile("url\[.+?\] = '(.+?)';").findall(HTML)
@@ -495,8 +528,7 @@ elif mode == 2    	: Search()
 elif mode == 3 		: Play_Stage(url)
 elif mode == 4 		: Regex(url)
 elif mode == 5    	: Resolve(url)
-#elif mode == 6 		: Stand_up_Menu()
-
+elif mode == 8 		: Search()
 elif mode == 7 		: grab_youtube_playlist(url)
 elif mode == 9 	 	: yt.PlayVideo(url)
 
