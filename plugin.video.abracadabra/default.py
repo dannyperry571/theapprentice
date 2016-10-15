@@ -32,7 +32,7 @@ base_url = sys.argv[0]
 addon_handle = int(sys.argv[1])
 args = urlparse.parse_qs(sys.argv[2][1:])
 PATH = "abracadabra"
-VERSION = "1.0.2"
+VERSION = "0.0.2"
 dp = xbmcgui.DialogProgress()
 ADDON = xbmcaddon.Addon(id=addon_id)
 debug = ADDON.getSetting('debug')
