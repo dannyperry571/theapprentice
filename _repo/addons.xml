@@ -717,6 +717,19 @@
     </extension>
 </addon>
 
+<addon id="script.common.plugin.cache" name="Common plugin cache" provider-name="TheCollective" version="2.5.8">
+  <requires>
+    <import addon="xbmc.python" version="2.24.0" />
+  </requires>
+  <extension library="default.py" point="xbmc.service" start="startup">
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Common caching api for xbmc plugins.</summary>
+  </extension>
+  <extension library="lib" point="xbmc.python.module" />
+</addon>
+
 <addon id="script.module.actionhandler" name="ActionHandler" version="1.0.3" provider-name="Philipp Temminghoff (phil65)">
 	<extension point="xbmc.python.module" library="lib" />
 	<extension point="xbmc.addon.metadata">
