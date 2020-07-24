@@ -1210,7 +1210,7 @@ class GenericIE(InfoExtractor):
                 'id': '50YnY4czr4ms1vJ7yz3xzq0excz_pUMs',
                 'ext': 'mp4',
                 'description': 'VIDEO: INDEX/MATCH versus VLOOKUP.',
-                'title': 'This is what separates the Excel masters from the wannabes',
+                'title': 'This is what separates the Excel mains from the wannabes',
                 'duration': 191.933,
             },
             'params': {
@@ -1350,7 +1350,7 @@ class GenericIE(InfoExtractor):
         {
             'url': 'http://www.rtl.be/info/video/589263.aspx?CategoryID=288',
             'info_dict': {
-                'id': 'master',
+                'id': 'main',
                 'ext': 'mp4',
                 'title': 'Une nouvelle espèce de dinosaure découverte en Argentine',
                 'uploader': 'www.rtl.be',
